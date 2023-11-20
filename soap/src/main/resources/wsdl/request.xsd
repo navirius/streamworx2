@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:orac="http://www.oracle.com"
+           xmlns:v1="http://www.oracle.com/external/services/sampleservice/request/v1.0"
+           xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+           xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+           attributeFormDefault="unqualified" elementFormDefault="qualified"
+           targetNamespace="http://schemas.xmlsoap.org/soap/envelope/"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:import schemaLocation="request_header.xsd"
+               namespace="http://www.oracle.com" />
+    <xs:import schemaLocation="request_body.xsd"
+               namespace="http://www.oracle.com/external/services/sampleservice/request/v1.0" />
+    <xs:element name="Envelope">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Header">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element ref="orac:authenticationheader" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Body">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element ref="v1:sampleservicerq" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
