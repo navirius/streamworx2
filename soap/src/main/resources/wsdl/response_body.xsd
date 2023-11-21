@@ -1,17 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://www.oracle.com/external/services/sampleservice/response/v1.0"
-           attributeFormDefault="unqualified"
-           elementFormDefault="qualified"
-           targetNamespace="http://www.oracle.com/external/services/sampleservice/response/v1.0"
-           xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <xs:element name="sampleservicers">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element name="error_code" type="xs:string" />
-                <xs:element name="error_msg" type="xs:string" />
-                <xs:element name="trx_id" type="xs:string" />
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        elementFormDefault="qualified"
+        targetNamespace="http://www.oracle.com/external/services/sampleservice/response/v1.0"
+        xmlns:tns="http://www.oracle.com/external/services/sampleservice/response/v1.0"
+        xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+  <xs:import namespace="http://sample-service.com/response" schemaLocation="response.xsd"/>
+  <xs:element name="sampleservicers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="tns:error_code"/>
+        <xs:element ref="tns:error_msg"/>
+        <xs:element ref="tns:trx_id"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="error_code" type="xs:string"/>
+  <xs:element name="error_msg" type="xs:string"/>
+  <xs:element name="trx_id" type="xs:string"/>
 </xs:schema>

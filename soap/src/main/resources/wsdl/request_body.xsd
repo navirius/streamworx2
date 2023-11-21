@@ -1,18 +1,23 @@
-<?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://www.oracle.com/external/services/sampleservice/request/v1.0"
-           attributeFormDefault="unqualified"
-           elementFormDefault="qualified"
-           targetNamespace="http://www.oracle.com/external/services/sampleservice/request/v1.0"
-           xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <xs:element name="sampleservicerq">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element name="service_id" type="xs:unsignedInt" />
-                <xs:element name="order_type" type="xs:string" />
-                <xs:element name="type" type="xs:string" />
-                <xs:element name="trx_id" type="xs:string" />
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+        targetNamespace="http://www.oracle.com/external/services/sampleservice/request/v1.0"
+        xmlns:orac="http://www.oracle.com"
+        xmlns:v1="http://www.oracle.com/external/services/sampleservice/request/v1.0"
+        xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+  <xs:import namespace="http://sample-service.com/request" schemaLocation="request.xsd"/>
+  <xs:import namespace="http://www.oracle.com" schemaLocation="request_header.xsd"/>
+  <xs:element name="sampleservicerq">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="v1:service_id"/>
+        <xs:element ref="v1:order_type"/>
+        <xs:element ref="v1:type"/>
+        <xs:element ref="v1:trx_id"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="service_id" type="xs:string"/>
+  <xs:element name="order_type" type="xs:string"/>
+  <xs:element name="type" type="xs:string"/>
+  <xs:element name="trx_id" type="xs:string"/>
 </xs:schema>
